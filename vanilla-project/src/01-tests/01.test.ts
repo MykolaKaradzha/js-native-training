@@ -1,64 +1,69 @@
-import {mult, sum, wordsSplitting} from "./01";
+import {add, mult, splittingIntoWords} from "./01";
 
-let a: number;
-let b: number;
-let c: number;
+let a:number;
+let b:number;
+let c:number;
 
 beforeEach( () => {
-        a = 1;
-        b = 2;
-        c = 3;
+    a = 1;
+    b = 2;
+    c = 3;
+    }
+)
+test("adding should be correct", () => {
+    //data
+    // new values for variables assigned
+    a = 10;
+    b = 4;
+    c = 5;
+
+    //action
+    let result1 = add(a,b)
+    let result2 = add(b,c)
+
+    //expected result
+    expect(result1).toBe(14)
+    expect(result2).toBe(9)
 })
-test("sum should be correct", () => {
-        // data
-        // const a = 1
-        // const b = 2
-        // const c = 3
 
-        //action
-        const result1 = sum(a,b)
-        const result2 = sum(b,c)
-
-        //expected result
-        expect(result1).toBe(3)
-        expect(result2).toBe(5)
-    }
-)
 test("multiply should be correct", () => {
-        // data
-        // const a = 1
-        // const b = 2
-        // const c = 3
+    //data
+    //can be empty if there is beforeEach
 
-        //action
-        const result1 = mult(a,b)
-        const result2 = mult(b,c)
+    //action
+    let result1 = mult(a,b)
+    let result2 = mult(b,c)
 
-        //expected result
-        expect(result1).toBe(2)
-        expect(result2).toBe(6)
-    }
-)
-test("splitting into the words should be correct", ()=>{
-        //data
-        const sentence1 = "Hello my friend!"
-        const sentence2 = "JS - the best  programming language!"
+    //expected result
+    expect(result1).toBe(2)
+    expect(result2).toBe(6)
+})
 
-        //action
-        const result1 = wordsSplitting(sentence1);
-        const result2 = wordsSplitting(sentence2);
+test("splitting should be correct", () => {
+    //data
+    let a = "London is the capital of the Great Britain, you know that, right?"
+    let b = "Testing is  awesome! !"
+    //action
+    let result1 = splittingIntoWords(a)
+    let result2 = splittingIntoWords(b)
 
-        //expected result
-        expect(result1.length).toBe(3);
-        expect(result1[0]).toBe('hello');
-        expect(result1[1]).toBe('my');
-        expect(result1[2]).toBe('friend');
+    //expected result
+    expect(result1.length).toBe(12)
+    expect(result1[0]).toBe("london")
+    expect(result1[1]).toBe("is")
+    expect(result1[2]).toBe("the")
+    expect(result1[3]).toBe("capital")
+    expect(result1[4]).toBe("of")
+    expect(result1[5]).toBe("the")
+    expect(result1[6]).toBe("great")
+    expect(result1[7]).toBe("britain")
+    expect(result1[8]).toBe("you")
+    expect(result1[9]).toBe("know")
+    expect(result1[10]).toBe("that")
+    expect(result1[11]).toBe("right")
+    expect(result2.length).toBe(3)
+    expect(result2[0]).toBe("testing")
+    expect(result2[1]).toBe("is")
+    expect(result2[2]).toBe("awesome")
 
-        expect(result2.length).toBe(5);
-        expect(result2[0]).toBe('js');
-        expect(result2[1]).toBe('the');
-        expect(result2[2]).toBe('best');
-        expect(result2[3]).toBe('programming');
-        expect(result2[4]).toBe('language');
-    }
-)
+})
